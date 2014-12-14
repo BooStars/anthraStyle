@@ -1,0 +1,26 @@
+<menudetailedtext x="0" y="0" width="100%" height="100%" fadetime="0">
+<background>
+
+<area x="0%" y="0%" width="100%" height="10%" layer="2">
+	<drawimage condition="not{current}" name="header" imagetype="skinpart" path="header" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+</area>
+<area x="0%" y="10%" width="100%" height="83%" layer="2">
+	<fill color="{clrTransBlack}" />	
+</area>
+
+
+
+</background>	
+<scrollbar>
+<area x="99%" y="13%" width="1%" height="77%" layer="5">		
+		<drawimage  name="scrollbar" imagetype="skinpart" path="scrollbar" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+		<drawrectangle x="3" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}-6" height="{areaheight} * {height} / 1000" color="{clrOwnBlue}" />			
+</area>
+</scrollbar>
+
+
+
+<tab name="text" x="2%" y="13%" width="98%" height="77%" layer="2" scrollheight="{areaheight}/4">
+	<drawtextbox x="0" y="0" width="{areawidth}" font="{light}" fontsize="5%" color="{clrWhite}" text="{text}" />
+</tab>
+</menudetailedtext>

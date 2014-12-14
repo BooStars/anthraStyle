@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE displayreplay SYSTEM "../../../dtd/displayreplay.dtd">
+ 
+<displayreplay x="0" y="0" width="100%" height="100%" fadetime="0">
+<background>
+<area x="0" y="70%" width="100%" height="30%" layer="1">
+		<drawimage name="diplaychannelback" imagetype="skinpart" path="diplaychannelback" x="0" y="0" width="100%" height="{areaheight}/5"/>
+		<drawrectangle  x="0" align="center" y="{height(diplaychannelback)}" width="100%" height="{areaheight}/4*3" color="{clrTransBlack}" />
+		<drawimage name="diplaychannelback" imagetype="skinpart" path="diplaychannelback" x="0" valign="bottom" width="100%" height="{areaheight}/5"/>
+	
+</area>
+
+		 
+</background>
+
+<backgroundmodeonly>
+	<!-- background small infobar -->
+	<area x="20%" y="85%" width="60%" height="15%"  layer="1">
+		<drawimage name="menuitem" imagetype="skinpart" path="menuitem" x="0" y="0" width="100%" height="{areaheight}"/>
+	</area>
+</backgroundmodeonly>
+
+
+
+
+<rectitle>
+<area x="1%" y="70%" width="98%" height="6%" layer="2">
+
+		<drawtext name= "title" x="0" y="0" valign="bottom" width="{areawidth}-{width(rectime)}" font="{light}" fontsize="95%" color="{clrWhite}" text="{rectitle}" />
+		<drawtext name="rectime" x="{areawidth}-{width(rectime)}" y="0" valign="bottom" font="{light}" fontsize="95%" color="{clrWhite}" text="{recdate} - {rectime}" />
+	</area>
+	<area x="1%" y="76%" width="98%" height="6%" layer="2">
+		<drawtext name="recsubtitle" x="0" y="{height(title)}"  font="{light}" fontsize="75%" color="{clrLightGray}" text="{recsubtitle}" />
+	</area>
+</rectitle>
+
+
+<progressbar>
+	<area x="0" y="80%" width="100%" height="10%" layer="1">
+		<drawrectangle  x="0" y="0" align="center" valign="center" width="100%" height="{areaheight}/4" color="{clrTransOwnBlue}" />
+		<drawrectangle x="0" y="0" valign="center" width="{current}/{total}*{areawidth}" height="{areaheight}/4" color="{clrOwnBlue}" />
+	</area>
+</progressbar>
+
+<currenttime>
+<area x="0" y="74%" width="100%" height="30%" layer="1">
+		<drawtext valign="center" align="left" font="{light}" fontsize="15%" color="{clrWhite}" text="{reccurrent}" />
+	</area>
+</currenttime>
+<totaltime>
+<area x="0" y="74%" width="100%" height="30%" layer="1">
+		<drawtext valign="center" align="right" font="{light}" fontsize="15%" color="{clrWhite}" text="{rectotal}" />
+	</area>
+</totaltime>
+
+<recinfo>
+	 <area x="{areawidth}*0.98 - {areaheight}*0.125" y="{areaheight}*0.945" width="{areaheight}*0.15" height="5%" layer="2">
+  
+            <drawimage imagetype="icon" path="ico_{resolution}" x="0" y="0" width="{areaheight}*3" height="{areaheight}"/>
+        </area>
+</recinfo>
+
+
+<cutmarks>
+	<area x="0" y="84%" width="100%" height="{areaheight}/100*2.5" layer="3">
+		<loop name="marks" x="0" y="0" orientation="absolute">
+			<!-- draw mark -->
+            <drawrectangle condition="not{marks[active]}" x="{marks[position]}/{marks[total]}*{areawidth}" y="0" width="1" height="100%" color="{clrWhite}" />
+            <drawrectangle condition="not{marks[active]} ++ {marks[startmark]}" x="{marks[position]}/{marks[total]}*{areawidth}" y="0" width="5" height="1" color="{clrWhite}" />
+            <drawrectangle condition="not{marks[active]} ++ {marks[startmark]}" x="{marks[position]}/{marks[total]}*{areawidth}" y="{areaheight}-1" width="5" height="1" color="{clrWhite}" />
+            <drawrectangle condition="not{marks[active]} ++ not{marks[startmark]}" x="{marks[position]}/{marks[total]}*{areawidth} - 5" y="0" width="5" height="1" color="{clrWhite}" />
+            <drawrectangle condition="not{marks[active]} ++ not{marks[startmark]}" x="{marks[position]}/{marks[total]}*{areawidth} - 5" y="{areaheight}-1" width="5" height="1" color="{clrWhite}" />
+            <!-- draw active mark -->
+            <drawrectangle condition="{marks[active]}" x="{marks[position]}/{marks[total]}*{areawidth}" y="0" width="1" height="100%" color="{clrRed}" />
+            <drawrectangle condition="{marks[active]} ++ {marks[startmark]}" x="{marks[position]}/{marks[total]}*{areawidth}" y="0" width="5" height="1" color="{clrRed}" />
+            <drawrectangle condition="{marks[active]} ++ {marks[startmark]}" x="{marks[position]}/{marks[total]}*{areawidth}" y="{areaheight}-1" width="5" height="1" color="{clrRed}" />
+            <drawrectangle condition="{marks[active]} ++ not{marks[startmark]}" x="{marks[position]}/{marks[total]}*{areawidth} - 5" y="0" width="5" height="1" color="{clrRed}" />
+            <drawrectangle condition="{marks[active]} ++ not{marks[startmark]}" x="{marks[position]}/{marks[total]}*{areawidth} - 5" y="{areaheight}-1" width="5" height="1" color="{clrRed}" />
+            <!-- draw bar to next mark if mark is startmark-->                
+            <drawrectangle condition="{marks[startmark]}" x="{marks[position]}/{marks[total]}*{areawidth}" y="0" valign="center" width="{marks[endposition]}/{marks[total]}*{areawidth} - {marks[position]}/{marks[total]}*{areawidth}" height="{areaheight}/4" color="{clrRed}" />
+		</loop>
+	</area>
+</cutmarks>
+
+    <controlicons>
+        <area x="37%" y="87%" width="26%" height="7%" layer="3">
+			
+            <drawimage condition="not{rewind} ++ not{rewind1x} ++ not{rewind2x} ++ not{rewind3x}" imagetype="icon" path="rew_off" x="{areawidth}/2 - 2*{areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+			<drawimage name="rw" condition="{rewind}" imagetype="icon" path="rew_on" x="{areawidth}/2 - 2*{areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="rw1" condition="{rewind1x}" imagetype="icon" path="rew_on" x="{areawidth}/2 - 2*{areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+			<drawimage name="rw2" condition="{rewind2x}" imagetype="icon" path="rew_on" x="{areawidth}/2 - 2*{areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="rw2" condition="{rewind2x}" imagetype="icon" path="rw2x" x="{areawidth}/2 - 2*{areaheight}-{width(rw1)}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+			<drawimage name="rw3" condition="{rewind3x}" imagetype="icon" path="rew_on" x="{areawidth}/2 - 2*{areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="rw3" condition="{rewind3x}" imagetype="icon" path="rw3x" x="{areawidth}/2 - 2*{areaheight}-{width(rw1)}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+            <drawimage condition="not{pause}" imagetype="icon" path="pause_off" x="{areawidth}/2 - {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="{pause}" imagetype="icon" path="pause" x="{areawidth}/2 - {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+
+            <drawimage condition="not{play}" imagetype="icon" path="play_off" x="{areawidth}/2" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="{play}" imagetype="icon" path="play" x="{areawidth}/2" y="0" width="{areaheight}" height="{areaheight}"/>
+
+            
+			<drawimage condition="not{forward} ++ not{forward1x} ++ not{forward2x} ++ not{forward3x}" imagetype="icon" path="forward_off" x="{areawidth}/2 + {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="ff" condition="{forward}" imagetype="icon" path="forward_on" x="{areawidth}/2 + {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="ff1" condition="{forward1x}" imagetype="icon" path="forward_on" x="{areawidth}/2 + {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+			<drawimage name="ff2" condition="{forward2x}" imagetype="icon" path="forward_on" x="{areawidth}/2 + {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="ff2" condition="{forward2x}" imagetype="icon" path="ffx2" x="{areawidth}/2 + {areaheight}+{width(ff1)}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+			<drawimage name="ff3" condition="{forward3x}" imagetype="icon" path="forward_on" x="{areawidth}/2 + {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+			<drawimage name="ff3" condition="{forward3x}" imagetype="icon" path="ffx3" x="{areawidth}/2 + {areaheight}+{width(ff1)}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+        </area>
+    </controlicons>
+
+    <controliconsmodeonly>
+     <area x="37%" y="90%" width="26%" height="7%" layer="3">
+		 
+            <drawimage condition="not{rewind} ++ not{rewind1x} ++ not{rewind2x} ++ not{rewind3x}" imagetype="icon" path="rew_off" x="{areawidth}/2 - 2*{areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+			<drawimage name="rw" condition="{rewind}" imagetype="icon" path="rew_on" x="{areawidth}/2 - 2*{areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="rw1" condition="{rewind1x}" imagetype="icon" path="rew_on" x="{areawidth}/2 - 2*{areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+			<drawimage name="rw2" condition="{rewind2x}" imagetype="icon" path="rew_on" x="{areawidth}/2 - 2*{areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="rw2" condition="{rewind2x}" imagetype="icon" path="rw2x" x="{areawidth}/2 - 2*{areaheight}-{width(rw1)}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+			<drawimage name="rw3" condition="{rewind3x}" imagetype="icon" path="rew_on" x="{areawidth}/2 - 2*{areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="rw3" condition="{rewind3x}" imagetype="icon" path="rw3x" x="{areawidth}/2 - 2*{areaheight}-{width(rw1)}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+            <drawimage condition="not{pause}" imagetype="icon" path="pause_off" x="{areawidth}/2 - {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="{pause}" imagetype="icon" path="pause" x="{areawidth}/2 - {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+
+            <drawimage condition="not{play}" imagetype="icon" path="play_off" x="{areawidth}/2" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="{play}" imagetype="icon" path="play" x="{areawidth}/2" y="0" width="{areaheight}" height="{areaheight}"/>
+
+            
+			<drawimage condition="not{forward} ++ not{forward1x} ++ not{forward2x} ++ not{forward3x}" imagetype="icon" path="forward_off" x="{areawidth}/2 + {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="ff" condition="{forward}" imagetype="icon" path="forward_on" x="{areawidth}/2 + {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="ff1" condition="{forward1x}" imagetype="icon" path="forward_on" x="{areawidth}/2 + {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+			<drawimage name="ff2" condition="{forward2x}" imagetype="icon" path="forward_on" x="{areawidth}/2 + {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage name="ff2" condition="{forward2x}" imagetype="icon" path="ffx2" x="{areawidth}/2 + {areaheight}+{width(ff1)}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+			<drawimage name="ff3" condition="{forward3x}" imagetype="icon" path="forward_on" x="{areawidth}/2 + {areaheight}" y="0" width="{areaheight}" height="{areaheight}"/>
+			<drawimage name="ff3" condition="{forward3x}" imagetype="icon" path="ffx3" x="{areawidth}/2 + {areaheight}+{width(ff1)}" y="0" width="{areaheight}" height="{areaheight}"/>
+            
+        </area>
+      </controliconsmodeonly>
+
+
+<jump>
+	 <area x="55%" y="87%" width="26%" height="7%" layer="5">
+	 	<drawtext align="center" valign="top" font="{light}" fontsize="85%" color="{clrWhite}" text="{jump}" />
+	</area>
+</jump>
+ <onpause delay="60" fadetime="{fadeTime}">
+        <area x="0" y="0" width="100%" height="100%" layer="7">
+            <fill color="{clrSemiTransBlack}" />
+        </area>
+    </onpause>
+
+    <onpausemodeonly delay="60" fadetime="{fadeTime}">
+        <area x="0" y="0" width="100%" height="100%" layer="6">
+            <fill color="{clrSemiTransBlack}" />
+        </area>
+		
+        <area x="0" y="0" width="100%" height="100%" layer="7">
+            
+			<drawimage name="seriesposter" condition="{isseries}" imagetype="image" path="{seriesposter1path}" align="center" y="10%" width="{areawidth}*0.17" height="{areawidth} * 0.17 * {seriesposter1height} / {seriesposter1width}"/>
+            <drawimage name="movieposter" condition="{ismovie}" imagetype="image" path="{posterpath}" x="0" y="10%" align="center" width="{areaheight} * 0.4  * {posterwidth} / {posterheight}" height="{areaheight} * 0.4"/>
+		
+			
+            <drawtext align="center" y="55%" font="{semibold}" fontsize="25%" color="{clrWhite}" text="{tr(pause)}" />
+        
+		
+		</area>
+    </onpausemodeonly>
+	
+<message>
+	  <area x="0" y="80%" width="100%" height="20%" layer="7">  
+				  
+		<drawimage name="message_back" imagetype="skinpart" path="message_back" x="0" valign="bottom" width="100%" height="100%"/>
+	
+		<drawrectangle condition="{warning}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrYellow}" />
+		<drawrectangle condition="{error}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrRed}" />
+		<drawrectangle condition="{status}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrGreen}" />
+		<drawrectangle condition="{info}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrOwnBlue}" />
+	
+	</area>
+	<area x="0" y="85%" width="100%" height="15%" layer="7">    
+	
+		<drawtext align="center" valign="center" font="{light}" fontsize="40%" color="{clrWhite}" text="{text}" />
+	</area>
+</message>
+
+</displayreplay>

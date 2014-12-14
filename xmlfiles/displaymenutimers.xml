@@ -1,0 +1,75 @@
+<menutimers x="0" y="0" width="100%" height="100%" scaletvx="36%" scaletvy="0%" scaletvwidth="64%" scaletvheight="100%" fadetime="0" >
+<background>
+
+</background>
+
+<menuitems x="0" y="10%" orientation="vertical" width="100%" height="82%" numlistelements="10">
+<listelement>
+<area x="0%" width="35%" layer="2">
+		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+	</area>
+	<area x="0%" width="35%" layer="2">
+		<drawimage condition="not{current}" name="menuitem" imagetype="skinpart" path="menuitem" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+	</area>
+ 
+<area x="0" width="35%" layer="3">
+
+		<drawimage condition="{flagactive}" name="active" imagetype="icon" path="ico_timer_active" x="{areawidth}-{areaheight}/2.5" width="{areaheight}/3" height="{areaheight}/3" y="10%" />
+        <drawimage condition="not{flagactive}" name="active" imagetype="icon" path="ico_timer_inactive" x="{areawidth}-{areaheight}/2.5" width="{areaheight}/3" height="{areaheight}/3" y="10%" />
+        <drawimage condition="{flagrecording}" name="active" imagetype="icon" path="ico_timer_recording" x="{areawidth}-{areaheight}/2.5" width="{areaheight}/3" height="{areaheight}/3" y="10%" />
+	
+	</area>
+
+	<area x="1%" width="5%" layer="3">
+	        <drawimage cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="center" valign="center" width="{areawidth}" height="{areaheight}/1.25" />
+            <drawtext condition="not{channellogoexists}" align="center" valign="center" font="{light}" fontsize="50%" color="{clrWhite}" text="{channelnumber}" />
+	</area>
+	
+	
+	<areascroll scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="7%" width="26%" layer="4">	
+	
+	<drawtext name="timerday" x="0" y="10%"  font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname} {day} ({timerstart} - {timerstop})" />	 
+	<drawtext name="timertext" x="0" y="{height(timerday)}+{posy(timerday)}" font="{light}" fontsize="35%" color="{clrWhite}" text="{title}" />
+
+    </areascroll>
+ 
+
+
+</listelement>
+
+    	
+<currentelement delay="2000" fadetime="750">
+
+<area x="35%" y="9%" width="65%" height="83%" layer="1">
+	<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrTransBlack}" />
+</area>
+
+<area x="37%" y="0%" width="62%" height="83%" layer="3">
+    <drawtext name="title" x="0" y="0" font="{semibold}" width="{areawidth}" fontsize="10%" color="{clrWhite}" text="{title}" />
+	<drawtext condition="{flagactive}" name="shorttext" x="0" y="{height(title)}" font="{semibold}" width="{areawidth}" fontsize="8%" color="{clrWhite}" text="{dayname} {eventstart} - {eventstop}, {channelname}" />
+	<drawtext condition="not{flagactive}" name="shorttext" x="0" y="{height(title)}" font="{light}" fontsize="8%" color="{clrWhite}" text="{channelname} - {timerstart} - {timerstop}" />
+</area>
+
+	<areascroll condition="{hasposter}" mode="forthandback" orientation="vertical" delay="1000" scrollspeed="medium" x="37%" y="25%" width="61%" height="75%" layer="3">
+		<drawimage  condition="{hasposter}" name="poster" imagetype="image" path="{posterpath}" align="right" y="0"  width="{areaheight} * 0.8  * {posterwidth} / {posterheight}" height="{areaheight} * 0.8"/>	
+		<drawtextbox x="0" y="0" width="95%" height="{areaheight} - {posy(poster)}" float="topright" floatwidth="{width(poster)}" floatheight="{height(poster)}+50"  font="{light}" fontsize="5%" color="{clrWhite}" text="{eventdescription}" />
+	</areascroll>
+	<areascroll condition="not{hasposter}" mode="forthandback" orientation="vertical" delay="1000" scrollspeed="medium" x="37%" y="25%" width="61%" height="75%" layer="3">
+		<drawtextbox x="0" y="0" width="95%" height="{areaheight} - {posy(poster)}" float="topleft"  font="{light}" fontsize="5%" color="{clrWhite}" text="{eventdescription}" />
+	</areascroll>
+
+
+			
+		
+</currentelement>
+
+</menuitems>
+ 
+<scrollbar>
+<area x="35%" y="10%" width="1%" height="82%" layer="5">		
+		<drawimage  name="scrollbar" imagetype="skinpart" path="scrollbar" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+		<drawrectangle x="3" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}-6" height="{areaheight} * {height} / 1000" color="{clrOwnBlue}" />			
+</area>
+</scrollbar>
+	
+</menutimers>

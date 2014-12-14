@@ -1,0 +1,62 @@
+<menuchannels x="0" y="0" width="100%" height="100%" scaletvx="36%" scaletvy="0%" scaletvwidth="64%" scaletvheight="100%" fadetime="0" >
+<menuitems x="0" y="10%" orientation="vertical" width="100%" height="82%" numlistelements="10">
+
+<listelement>
+	<area x="0%" width="35%" layer="2">
+		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+	</area>
+	<area x="0%" width="35%" layer="2">
+		<drawimage condition="not{current}" name="menuitem" imagetype="skinpart" path="menuitem" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+		</area>
+			
+<!-- channel -->
+	<area condition="{separator}" x="2%" width="32%" layer="3">
+		<drawtext x="0" valign="center" font="{light}" fontsize="75%" color="{clrOwnBlue}" text="{name}" />
+    </area>
+	
+	<area condition="not{separator}" x="1%" width="5%" layer="3">
+	        <drawimage cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="center" valign="center" width="{areawidth}" height="{areaheight}/1.25" />
+            <drawtext condition="not{channellogoexists}" align="center" valign="center" font="{light}" fontsize="50%" color="{clrWhite}" text="{number}" />
+	</area> 
+		
+	<areascroll condition="not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="7%" width="26%" layer="3">
+		<drawtext name="menutext" x="0" y="15%" font="{light}" fontsize="50%" color="{clrWhite}" text="{name}" />
+		
+		<drawtext condition="eq({ChanSubListElement}, 0)"  x="0" y="{posy(menutext)}+{height(menutext)}" font="{light}" fontsize="35%" color="{clrWhite}" text="{sourcedescription} , {transponder}" />
+        <drawtext condition="eq({ChanSubListElement}, 1)" x="0" y="{posy(menutext)}+{height(menutext)}" font="{light}" fontsize="35%" color="{clrWhite}" text="{presenteventtitle}" />
+     
+		
+    </areascroll>
+            
+</listelement>
+       
+<currentelement delay="2000" fadetime="750">
+<!-- background info bar -->
+	<area x="36%" y="71%" width="70%" height="30%" layer="3">
+		
+		<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrTransBlack}" />
+		
+	</area>
+
+<!-- text infobar -->
+	
+	<areascroll mode="forthandback" orientation="vertical" delay="1000" scrollspeed="medium" x="37%" y="71%" width="63%" height="28%" layer="4">
+                <drawtext name="title" x="0" y="0" font="{semibold}" fontsize="20%" color="{clrWhite}" text="{tr(nextschedules)}:" />
+                <loop name="schedule" x="0" y="{height(title)}" orientation="vertical">
+                 <drawtext x="0" font="{semibold}" width="{areawidth}-20" fontsize="15%" color="{clrWhite}" text=" {schedule[start]} {schedule[title]}" />
+                </loop>
+    </areascroll>
+	
+
+</currentelement>
+</menuitems>
+
+<scrollbar>
+<area x="35%" y="10%" width="1%" height="82%" layer="5">		
+		<drawimage  name="scrollbar" imagetype="skinpart" path="scrollbar" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+		<drawrectangle x="3" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}-6" height="{areaheight} * {height} / 1000" color="{clrOwnBlue}" />			
+</area>
+</scrollbar>
+	
+	
+</menuchannels>

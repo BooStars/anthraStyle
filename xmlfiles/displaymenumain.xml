@@ -1,0 +1,56 @@
+<menumain x="0" y="0" width="100%" height="100%" scaletvx="36%" scaletvy="0%" scaletvwidth="64%" scaletvheight="100%" fadetime="0" >
+
+<background>
+
+<area x="0%" y="0%" width="100%" height="10%" layer="2">
+	<drawimage  name="header" imagetype="skinpart" path="header" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+</area>
+
+<area x="0" y="0" width="36%" height="100%" layer="1">
+	<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrBlack}" />
+</area>
+
+
+</background>
+<header>
+<area x="0%" y="1%" width="70%" height="8%" layer="3">
+	<drawimage name="vdrlogo" imagetype="icon" path="vdrlogo" x="0" width="{areawidth}/7" height="{areaheight}" valign="top" />
+	<drawtext x="{width(vdrlogo)}" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text=" {vdrversion}" />	
+</area>
+</header>
+
+<timers>
+
+</timers>
+
+<menuitems x="0" y="10%" orientation="vertical" width="100%" height="83%" numlistelements="10">
+
+<listelement >
+<!--active item -->
+	<area x="0" width="35%" layer="2">
+		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+	</area>
+	<area x="0" width="35%" layer="2">
+		<drawimage condition="not{current}" name="menuitem" imagetype="skinpart" path="menuitem" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+	</area>
+	 
+	 <area x="1%" width="5%" layer="3">
+                <drawimage imagetype="menuicon" path="{icon}" x="0" valign="center" width="{areaheight}*0.8" height="{areaheight}*0.8"/>
+     </area>
+	 
+	<areascroll scrollelement="menutext" mode="forthandback" orientation="horizontal" delay="1000" scrollspeed="medium" x="6%" width="28%" layer="3">
+		<drawtext name="menutext" x="0" valign="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{number} {label}" />
+    </areascroll>
+
+</listelement>
+</menuitems>
+  
+<scrollbar>
+<area x="35%" y="10%" width="1%" height="82%" layer="5">		
+		<drawimage  name="scrollbar" imagetype="skinpart" path="scrollbar" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+		<drawrectangle x="3" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}-6" height="{areaheight} * {height} / 1000" color="{clrOwnBlue}" />			
+</area>
+</scrollbar>
+
+
+</menumain>

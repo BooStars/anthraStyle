@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE displaychannel SYSTEM "../../../dtd/displaychannel.dtd">
+
+<displaychannel x="0" y="0" width="100%" height="100%" fadetime="0">
+    <background>
+<area x="0" y="70%" width="100%" height="30%" layer="1">
+		<drawimage name="diplaychannelback" imagetype="skinpart" path="diplaychannelback" x="0" y="0" width="100%" height="{areaheight}/5"/>
+		<drawrectangle  x="0" align="center" y="{height(diplaychannelback)}" width="100%" height="{areaheight}/4*3" color="{clrTransBlack}" />
+		<drawimage name="diplaychannelback" imagetype="skinpart" path="diplaychannelback" x="0" valign="bottom" width="100%" height="{areaheight}/5"/>
+	
+</area>
+
+		
+		 
+</background>
+
+<datetime>
+	<area x="75%" y="70%" width="24%" height="6%" layer="2">
+		
+		<drawtext name="dayname" x="0" y="0" align="right" valign="bottom" font="{light}" fontsize="85%" color="{clrWhite}" text="{daynameshort} {day}.{monthnameshort} {time}" />
+    </area>
+</datetime>
+
+
+<channelinfo>
+
+
+	  <area x="1%" y="70%" width="73%" height="6%" layer="2">
+	  
+		<drawtext name="channame" x="0" valign="bottom" font="{light}" fontsize="95%" color="{clrWhite}" text="{channelnumber}  {channelname}" />
+		
+	  </area>
+
+	  <area x="1%" y="77%" width="17%" height="16%" layer="2">
+            <drawimage cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="center" valign="center" width="{areawidth}" height="{areaheight}" />
+            <drawtext condition="not{channellogoexists}" align="center" valign="center" font="{light}" fontsize="40%" color="{clrWhite}" text="{channelnumber}" />
+        
+		</area>
+    </channelinfo>
+    
+
+<epginfo>
+	<area x="19%" y="77%" width="80%" height="7%" layer="2">
+		
+		<drawtext name="start" x="0%" valign="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{currentstart} " />
+        <drawtext name="title" x="{width(start)}" valign="top" width="{areawidth}-{width(startstop)}-{posx(title)}" font="{light}" fontsize="65%" color="{clrWhite}" text="{currenttitle}"  />       
+		<drawtext name="subtitle" x="{width(start)}" valign="bottom" width="{areawidth}-{width(startstop)}-{posx(title)}" font="{light}" fontsize="55%" color="{clrWhite}" text="{currentsubtitle}"/>
+		
+		<drawtext name="startstop" x="{areawidth} - {width(startstop)}" valign="top" font="{light}" fontsize="60%" color="{clrWhite}" text="{currentstart} - {currentstop}" />
+        <drawtext name="currenttimeremaining" x="{areawidth}-{width(currenttimeremaining)}" valign="bottom" font="{light}" fontsize="50%" color="{clrWhite}" text="+ {currentremaining} min" />			
+	</area>	
+	
+	<area x="19%" y="87%" width="80%" height="7%" layer="2">
+		
+		<drawtext name="nextstart" x="0%" valign="center" font="{light}" fontsize="65%" color="{clrLightGray}" text="{nextstart} " />
+        <drawtext name="nexttitle" x="{width(nextstart)}"  valign="top" font="{light}" width="{areawidth} - {width(nextstartstop)} - {posx(nexttitle)}" fontsize="65%" color="{clrLightGray}" text="{nexttitle}"/>
+        <drawtext name="nextsubtitle" x="{width(nextstart)}"  valign="bottom" width="{areawidth} - {width(nextstartstop)} -{posx(nexttitle)}" font="{light}" fontsize="55%" color="{clrLightGray}" text="{nextsubtitle}"/>
+            
+		<drawtext name="nextstartstop" x="{areawidth}-{width(nextstartstop)}" y="0" font="{light}" fontsize="60%" color="{clrLightGray}" text="{nextstart} - {nextstop}" />
+        <drawtext name="nextduration" x="{areawidth}-{width(nextduration)}" y="{posy(nextstartstop)}+{height(nextstartstop)}" font="{light}" fontsize="50%" color="{clrLightGray}" text="{nextduration} min" />
+	</area>
+</epginfo>
+
+
+<progressbar>
+	<area x="19%" y="85%" width="80%" height="1%" layer="3">
+		<drawrectangle  x="0" y="0" align="center" valign="center" width="100%" height="{areaheight}" color="{clrTransOwnBlue}" />
+        <drawrectangle x="0" y="0" width="{elapsed}/{duration}*{areawidth}" height="100%" color="{clrOwnBlue}" />
+    </area>
+	
+</progressbar>
+
+<screenresolution>
+  <area x="{areawidth}*0.98 - {areaheight}*0.125" y="{areaheight}*0.945" width="{areaheight}*0.15" height="5%" layer="2">
+  
+            <drawimage imagetype="icon" path="ico_{resolution}" x="0" y="0" width="{areaheight}*3" height="{areaheight}"/>
+        </area>
+
+</screenresolution>
+
+<statusinfo>
+
+		  <area x="{areawidth}*0.98 - {areaheight}*0.40" y="{areaheight}*0.945" width="{areaheight}*0.55" height="5%" layer="2">
+		  
+            <drawimage condition="{hasVT}" imagetype="icon" path="ico_txton" x="0" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="not{hasVT}" imagetype="icon" path="ico_txtoff" x="0" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="{isStereo}" imagetype="icon" path="ico_stereoon" x="{areaheight}+5" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="not{isStereo}" imagetype="icon" path="ico_stereooff" x="{areaheight}+5" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="{isDolby}" imagetype="icon" path="ico_dolbyon" x="2*{areaheight}+10" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="not{isDolby}" imagetype="icon" path="ico_dolbyoff" x="2*{areaheight}+10" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="{isEncrypted}" imagetype="icon" path="ico_encrypted" x="3*{areaheight}+15" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="not{isEncrypted}" imagetype="icon" path="ico_fta" x="3*{areaheight}+15" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="{isRecording}" imagetype="icon" path="ico_recon" x="4*{areaheight}+20" y="0" width="{areaheight}" height="{areaheight}"/>
+            <drawimage condition="not{isRecording}" imagetype="icon" path="ico_recoff" x="4*{areaheight}+20" y="0" width="{areaheight}" height="{areaheight}"/>
+			<drawimage condition="eq({showSignal},1)" imagetype="icon" name="ico_signal" path="ico_signal" x="0" y="0" width="{areaheight}" height="{areaheight}"/>
+        </area>
+	
+</statusinfo>
+	
+	
+<audioinfo>
+
+</audioinfo>
+
+  <signalquality>
+        
+		<area condition="eq({showSignal},1)" x="60%" y="95%" width="15%" height="5%" layer="3">
+			
+            <drawrectangle x="{areaheight}+{areawidth}*{signalstrength}/100" y="0" width="{areawidth} - {areawidth}*{signalstrength}/100" height="45%" color="{clrTransBlack}" />
+            <drawrectangle x="{areaheight}+{areawidth}*{signalquality}/100" y="50%" width="{areawidth} - {areawidth}*{signalquality}/100" height="45%" color="{clrTransBlack}" />
+        </area>
+    </signalquality>
+
+    <!-- background of signalmeter, will only be drawn if signalquality was deleted -->
+    <signalqualityback>
+        <area condition="eq({showSignal},1)" x="60%" y="95%" width="15%" height="5%" layer="2">
+            <drawimage imagetype="skinpart" path="signal" x="{areaheight}" y="0" width="100%" height="45%"/>
+            <drawimage imagetype="skinpart" path="signal" x="{areaheight}" y="50%" width="100%" height="45%"/>
+        </area>
+    </signalqualityback>
+
+  
+    <channelgroup>
+
+          <area x="0" y="76%" width="18%" height="18%" layer="2">
+		  
+            <drawimage condition="{sepexists}" imagetype="seplogo" path="{seppath}" align="center" valign="center" width="{areawidth}" height="{areaheight}" />
+            <drawimage condition="not{sepexists}" imagetype="icon" path="default" align="center" valign="center" width="{areawidth}" height="{areaheight}" />
+			
+        </area>
+		
+          <area x="18%" y="76%" width="78%" height="18%" layer="2">
+		  
+		<!-- dummies -->
+			<drawrectangle name="prev" x="1%" y="0"  width="29%" height="10" color="{clrTransparent}" />
+			<drawrectangle name="group" x="0" y="0" align="center" width="30%" height="1" color="{clrTransparent}" />
+
+            <drawtext valign="center" align="left" width="29%"  font="{light}" fontsize="30%" color="{clrWhite}" text="{prevgroup}" />
+			<drawimage valign="center" imagetype="icon" path="playback" x="{width(prev)}" width="5%" height="{areaheight}/5" />
+			<drawtext valign="center" align="center" width="30%"  font="{semibold}" fontsize="35%" color="{clrWhite}" text="{group}" />
+            <drawimage valign="center" imagetype="icon" path="play_sep" x="{width(group)}+{posx(group)}"  width="5%" height="{areaheight}/5" />
+            <drawtext valign="center" align="right" width="29%"  font="{light}" fontsize="30%" color="{clrWhite}" text="{nextgroup}" />
+        </area>             
+    </channelgroup>
+
+
+<message>
+	  <area x="0" y="80%" width="100%" height="20%" layer="7">  
+				  
+		<drawimage name="message_back" imagetype="skinpart" path="message_back" x="0" valign="bottom" width="100%" height="100%"/>
+	
+		<drawrectangle condition="{warning}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrYellow}" />
+		<drawrectangle condition="{error}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrRed}" />
+		<drawrectangle condition="{status}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrGreen}" />
+		<drawrectangle condition="{info}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrOwnBlue}" />
+	
+	</area>
+	<area x="0" y="85%" width="100%" height="15%" layer="7">    
+	
+		<drawtext align="center" valign="center" font="{light}" fontsize="40%" color="{clrWhite}" text="{text}" />
+	</area>
+</message>
+	
+</displaychannel>

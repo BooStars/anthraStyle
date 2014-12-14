@@ -1,0 +1,65 @@
+<menudefault x="0" y="0" width="100%" height="100%" fadetime="0" scaletvx="0" scaletvy="0" scaletvwidth="0" scaletvheight="0">
+ <background>
+       
+<area x="0%" y="0%" width="100%" height="10%" layer="2">
+	<drawimage condition="not{current}" name="header" imagetype="skinpart" path="header" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+</area>
+    </background>
+<header>
+	<area x="1%" y="1%" width="70%" height="8%" layer="3">
+		<drawtext name="title" condition="not{hasicon}" x="0" width="{areawidth}" valign="bottom" font="{light}" fontsize="80%" color="{clrWhite}" text=" {title}" />
+		<drawimage name="menuicon" condition="{hasicon}" imagetype="menuicon" path="{icon}" x="0" valign="bottom" width="{areaheight}" height="{areaheight}"/>
+		<drawtext name="title" condition="{hasicon}" x="{posx(menuicon)}+{width(menuicon)}" valign="bottom" width="{areawidth}" font="{light}" fontsize="80%" color="{clrWhite}" text=" {title}" />
+	</area>
+</header>
+ 
+<datetime>
+	<area x="75%" y="1%" width="25%" height="8%" layer="2">
+		<drawtext name="dayname" x="0" y="0" font="{light}" fontsize="55%" color="{clrWhite}" text="{dayname}" />
+		<drawtext x="0" y="{height(dayname)}" font="{light}" fontsize="55%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+		<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+    </area>
+</datetime>
+
+<scrollbar>
+<area x="99%" y="13%" width="1%" height="76%" layer="5">		
+		<drawimage  name="scrollbar" imagetype="skinpart" path="scrollbar" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+		<drawrectangle x="3" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}-6" height="{areaheight} * {height} / 1000" color="{clrOwnBlue}" />			
+</area>
+</scrollbar>
+
+    <!-- IMPORTANT: menuitemwidth and determinatefont have to be defined here. 
+	menuitemwidth defines the total width of the default menu items, 
+	determinatefont the function which sets the actual font to use. With that it is possible to determinate
+    the correct column widths -->
+	
+<menuitems x="0" y="13%" orientation="vertical" width="100%" height="77%" menuitemwidth="96%" determinatefont="column1" numlistelements="14">
+
+<listelement>
+	<area x="0" width="99%" layer="2">
+		<drawimage condition="{current}" name="menuitembackdefault" imagetype="skinpart" path="menuitembackdefault" x="0" width="{areawidth}" height="{areaheight}"/>
+	</area>
+	<area x="0" width="99%" layer="2">
+		<drawimage condition="not{current}" name="menuitemdefault" imagetype="skinpart" path="menuitemdefault" x="0" width="{areawidth}" height="{areaheight}"/>
+	</area>
+			
+			
+    <areascroll condition="{column2set}" scrollelement="column1" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="{column1width}" layer="3">
+		<drawtext  name="column1" x="{column1x}" width="{column1width}" valign="bottom" font="{light}" fontsize="80%" color="{clrWhite}" text="{column1}" />
+    </areascroll>
+            
+	<areascroll condition="not{column2set}" scrollelement="column1" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="97%" layer="3">
+		<drawtext  name="column1" x="{column1x}" width="{column1width}" valign="bottom" font="{light}" fontsize="80%" color="{clrWhite}" text="{column1}" />
+    </areascroll>
+            
+	<area x="0" width="97%" layer="3">
+		<drawtext condition="{column2set}" x="{column2x}" valign="bottom" width="{column2width}" font="{light}" fontsize="80%" color="{clrWhite}" text="{column2}" />
+		<drawtext condition="{column3set}" x="{column3x}" valign="bottom" width="{column3width}" font="{light}" fontsize="80%" color="{clrWhite}" text="{column3}" />
+		<drawtext condition="{column4set}" x="{column4x}" valign="bottom" width="{column4width}" font="{light}" fontsize="80%" color="{clrWhite}" text="{column4}" />
+		<drawtext condition="{column5set}" x="{column5x}" valign="bottom" width="{column5width}" font="{light}" fontsize="80%" color="{clrWhite}" text="{column5}" />
+		<drawtext condition="{column6set}" x="{column6x}" valign="bottom" width="{column6width}" font="{light}" fontsize="80%" color="{clrWhite}" text="{column6}" />
+	</area>
+
+</listelement>
+</menuitems>
+</menudefault>
