@@ -48,12 +48,20 @@
 		<drawimage name="timerfullrun" condition="{timerfull}++{running}" imagetype="icon" path="running_rec" x="{areawidth}-{areaheight}/2.5" width="{areaheight}/3" height="{areaheight}/3" y="10%" />
 
 	</area>
-
+	
+	
 	<areascroll condition="{whatson}++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="33%" layer="4">	
 	<drawtext name="date" x="0" y="10%" font="{light}" fontsize="35%" color="{clrWhite}" text="{day} {date} {start} - {stop} " />			
 	<drawtext name="menutext" x="0" y="{height(date)}" font="{light}" fontsize="35%" color="{clrWhite}" text=" {title}" />
-	<drawtext name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
-    </areascroll>
+	<drawtext condition="eq({showEpgProcessBar},0) ++ {running}" name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
+    <drawtext condition="not{running}" name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
+    
+	</areascroll>
+	
+	<area condition="{whatson} ++ not{separator} ++ eq({showEpgProcessBar},1)" x="1%" width="33%" layer="3">
+		<drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15" width="{areawidth}" height="1" color="{clrBlue}" />
+        <drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15-2" width="{areawidth} * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrBlue}" />
+     </area>  
 		
 			
 <!-- WHATSONNOW -->
@@ -72,9 +80,13 @@
 	<areascroll condition="{whatsonnow}++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="7%" width="26%" layer="4">	
 	<drawtext name="date" x="0" y="10%" font="{light}" fontsize="35%" color="{clrWhite}" text="{day} {date} {start} - {stop} " />			
 	<drawtext name="menutext" x="0" y="{height(date)}" font="{light}" fontsize="35%" color="{clrWhite}" text=" {title}" />
-	<drawtext name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
+	<drawtext condition="eq({showEpgProcessBar},0) ++ {running}" name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
     </areascroll>
-		
+	
+	<area condition="{whatsonnow} ++ not{separator} ++ eq({showEpgProcessBar},1)" x="7%" width="26%" layer="3">
+		<drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15" width="{areawidth}" height="1" color="{clrBlue}" />
+        <drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15-2" width="{areawidth} * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrBlue}" />
+     </area> 
 			
 			
 <!-- WHATSONNEXT  -->
