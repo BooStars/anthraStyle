@@ -80,7 +80,7 @@
 
 <statusinfo>
 
-		  <area x="{areawidth}*0.98 - {areaheight}*0.40" y="{areaheight}*0.945" width="{areaheight}*0.55" height="5%" layer="2">
+		  <area x="{areawidth}*0.98 - {areaheight}*0.41" y="{areaheight}*0.945" width="{areaheight}*0.55" height="5%" layer="2">
 		  
             <drawimage condition="{hasVT}" imagetype="icon" path="ico_txton" x="0" y="0" width="{areaheight}" height="{areaheight}"/>
             <drawimage condition="not{hasVT}" imagetype="icon" path="ico_txtoff" x="0" y="0" width="{areaheight}" height="{areaheight}"/>
