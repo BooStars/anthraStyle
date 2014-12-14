@@ -30,7 +30,7 @@
             
 </listelement>
        
-<currentelement delay="2000" fadetime="750">
+<currentelement delay="{delayTime}" fadetime="{fadeTime}">
 <!-- background info bar -->
 	<area x="36%" y="71%" width="70%" height="30%" layer="3">
 		

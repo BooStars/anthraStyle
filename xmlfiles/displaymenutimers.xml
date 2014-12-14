@@ -38,7 +38,7 @@
 </listelement>
 
     	
-<currentelement delay="2000" fadetime="750">
+<currentelement delay="{delayTime}" fadetime="{fadeTime}">
 
 <area x="35%" y="9%" width="65%" height="83%" layer="1">
 	<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrTransBlack}" />

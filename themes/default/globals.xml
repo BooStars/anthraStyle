@@ -35,7 +35,7 @@
     -->
     <variables>
         <var type="int" name="border">5</var>
-        <var type="int" name="fadeTime">0</var>
+       
         <var type="string" name="stringglobal">hützligrütz</var>
 		
 		<!-- possible values: 
@@ -50,6 +50,10 @@
 		0 = chaninfo
 		-->
 		<var type="int" name="ChanSubListElement">1</var>
+		
+		 <var type="int" name="fadeTime">0</var>
+		 <var type="int" name="delayTime">0</var>
+		
 		
     </variables>
     <!--
