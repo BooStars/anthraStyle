@@ -143,11 +143,11 @@
 	<area condition="{hasposter}" x="37%" y="23%" width="61%" height="75%" layer="3">
 	<drawimage condition="{hasposter}" name="poster" imagetype="image" path="{posterpath}" align="right" y="0"  width="{areaheight} * 0.7  * {posterwidth} / {posterheight}" height="{areaheight} * 0.7"/>	
 
-		<drawtextbox name="description" x="0" y="0" width="95%" height="{areaheight} - {posy(poster)}" float="topright" floatwidth="{width(poster)}" floatheight="{height(poster)}+30"  font="{light}" fontsize="5%" color="{clrWhite}" text="{description}" />
+		<drawtextbox name="description" x="0" y="0" width="95%" height="{areaheight} - {posy(poster)}" float="topright" floatwidth="{width(poster)}" floatheight="{height(poster)}+30"  font="{light}" fontsize="4%" color="{clrWhite}" text="{description}" />
 			</area>
 	
 	<area condition="not{hasposter}" x="37%" y="25%" width="61%" height="75%" layer="3">
-		<drawtextbox x="0" y="0" width="95%" height="{areaheight}" float="topleft"  font="{light}" fontsize="5%" color="{clrWhite}" text="{description}" />
+		<drawtextbox x="0" y="0" width="95%" height="{areaheight}" float="topleft"  font="{light}" fontsize="4%" color="{clrWhite}" text="{description}" />
 	</area>			
 		
 </currentelement>
