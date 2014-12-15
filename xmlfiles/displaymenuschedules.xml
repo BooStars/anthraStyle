@@ -19,7 +19,7 @@
 <header>
 	<area x="0%" y="1%" width="68%" height="8%" layer="3">
 
-		<drawimage name="logo" cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" x="0" y="0" width="15%" height="{areaheight}-10" valign="center" align="left" />
+		<drawimage name="logo" cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" x="1%" y="0" width="15%" height="{areaheight}-10" valign="center" align="left" />
 		<drawtext condition="{channellogoexists}" x="{width(logo)}+{posx(logo)}" valign="center" font="{light}" fontsize="60%" color="{clrWhite}" text=" {title}" />
 		<drawtext condition="not{channellogoexists}" x="{width(notlogo)}" valign="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{title}" />
 	
