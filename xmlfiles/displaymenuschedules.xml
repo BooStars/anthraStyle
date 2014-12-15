@@ -3,8 +3,9 @@
 <background>
 
 <area x="0%" y="0%" width="100%" height="10%" layer="2">
-	<drawimage condition="not{current}" name="header" imagetype="skinpart" path="header" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+	<drawimage name="header" imagetype="skinpart" path="header" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
 </area>
+
 
 <area x="0" y="0" width="36%" height="100%" layer="1">
 	<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrBlack}" />
@@ -16,18 +17,18 @@
 
 
 <header>
-	<area x="1%" y="1%" width="68%" height="8%" layer="3">
+	<area x="0%" y="1%" width="68%" height="8%" layer="3">
 
-		<drawimage name="logo" cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" x="0" width="15%" height="100%" align="left" valign="center" />
-		<drawtext condition="{channellogoexists}" x="{width(logo)}" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text=" {title}" />
-		<drawtext condition="not{channellogoexists}" x="{width(notlogo)}" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawimage name="logo" cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" x="0" y="0" width="15%" height="{areaheight}-10" valign="center" align="left" />
+		<drawtext condition="{channellogoexists}" x="{width(logo)}+{posx(logo)}" valign="center" font="{light}" fontsize="60%" color="{clrWhite}" text=" {title}" />
+		<drawtext condition="not{channellogoexists}" x="{width(notlogo)}" valign="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{title}" />
 	
 	</area>
 </header>
 
 
 
-<menuitems x="0" y="10%" orientation="vertical" width="100%" height="82%" numlistelements="8">
+<menuitems x="0" y="10%" orientation="vertical" width="100%" height="84%" numlistelements="{epgMenuItems}">
 	
 <listelement>
 	<area x="0%" width="35%" layer="2">
@@ -52,15 +53,15 @@
 	
 	<areascroll condition="{whatson}++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="33%" layer="4">	
 	<drawtext name="date" x="0" y="10%" font="{light}" fontsize="35%" color="{clrWhite}" text="{day} {date} {start} - {stop} " />			
-	<drawtext name="menutext" x="0" y="{height(date)}" font="{light}" fontsize="35%" color="{clrWhite}" text=" {title}" />
-	<drawtext condition="eq({showEpgProcessBar},0) ++ {running}" name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
-    <drawtext condition="not{running}" name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
+	<drawtext name="menutext" x="0" y="{height(date)}+{posy(date)}/2" font="{light}" fontsize="35%" color="{clrWhite}" text=" {title}" />
+	<drawtext condition="eq({showEpgProcessBar},0) ++ {running}" name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}-5" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
+    <drawtext condition="not{running}" name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}-5" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
     
 	</areascroll>
 	
 	<area condition="{whatson} ++ not{separator} ++ eq({showEpgProcessBar},1)" x="1%" width="33%" layer="3">
-		<drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15" width="{areawidth}" height="1" color="{clrBlue}" />
-        <drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15-2" width="{areawidth} * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrBlue}" />
+		<drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15" width="{areawidth}" height="1" color="{clrOwnBlueLight}" />
+        <drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15-2" width="{areawidth} * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrOwnBlueLight}" />
      </area>  
 		
 			
@@ -79,13 +80,13 @@
 	
 	<areascroll condition="{whatsonnow}++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="7%" width="26%" layer="4">	
 	<drawtext name="date" x="0" y="10%" font="{light}" fontsize="35%" color="{clrWhite}" text="{day} {date} {start} - {stop} " />			
-	<drawtext name="menutext" x="0" y="{height(date)}" font="{light}" fontsize="35%" color="{clrWhite}" text=" {title}" />
-	<drawtext condition="eq({showEpgProcessBar},0) ++ {running}" name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
+	<drawtext name="menutext" x="0" y="{height(date)}+{posy(date)}/2" font="{light}" fontsize="35%" color="{clrWhite}" text=" {title}" />
+	<drawtext condition="eq({showEpgProcessBar},0) ++ {running}" name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}-5" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
     </areascroll>
 	
 	<area condition="{whatsonnow} ++ not{separator} ++ eq({showEpgProcessBar},1)" x="7%" width="26%" layer="3">
-		<drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15" width="{areawidth}" height="1" color="{clrBlue}" />
-        <drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15-2" width="{areawidth} * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrBlue}" />
+		<drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15" width="{areawidth}" height="1" color="{clrOwnBlueLight}" />
+        <drawrectangle condition="{running}" name="sb2" x="0" y="{areaheight}-{height(sb2)}*15-2" width="{areawidth} * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrOwnBlueLight}" />
      </area> 
 			
 			
@@ -102,17 +103,19 @@
 
 	<areascroll condition="{whatsonnext}++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="7%" width="26%" layer="4">	
 	<drawtext name="date" x="0" y="10%" font="{light}" fontsize="35%" color="{clrWhite}" text="{day} {date} {start} - {stop} " />			
-	<drawtext name="menutext" x="0" y="{height(date)}" font="{light}" fontsize="35%" color="{clrWhite}" text=" {title}" />
-	<drawtext name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
+	<drawtext name="menutext" x="0" y="{height(date)}+{posy(date)}/2" font="{light}" fontsize="35%" color="{clrWhite}" text=" {title}" />
+	<drawtext name="subtitle" x="0" y="{height(menutext)}+{posy(menutext)}-5" font="{light}" fontsize="30%" color="{clrWhite}" text=" {shorttext}" />
     </areascroll>
 		
 	
 <!-- separator -->
 <area condition="{separator}++{whatson}" x="0" width="35%" layer="4">
-      <drawtext x="0" y="0" valign="center" font="{light}" fontsize="55%" color="{clrOwnBlue}" text="{title}" />
+	  <drawimage name="sep" imagetype="icon" path="ico_daydelimiter" x="10" valign="center" width="{areaheight}-10" height="{areaheight}-10"/>
+      <drawtext x="{width(sep)}" y="0" valign="center" font="{light}" fontsize="45%" color="{clrOwnBlueLight}" text=" {title}" />
  </area>	
  <area condition="{separator}++not{whatson}" x="0" width="35%" layer="4">
-      <drawtext x="0" y="0" valign="center" font="{light}" fontsize="55%" color="{clrOwnBlue}" text=" {title}" />
+		<drawimage name="daysep" imagetype="icon" path="ico_chandelimiter" x="10" valign="center" width="{areaheight}-10" height="{areaheight}-10"/>     
+        <drawtext x="{width(daysep)}+10" y="0" valign="center" font="{light}" fontsize="45%" color="{clrOwnBlueLight}" text=" {title}" />
  </area>	
 </listelement>
     	
@@ -124,31 +127,34 @@
 
 <!-- text infobar -->
 	<area x="37%" y="0%" width="62%" height="83%" layer="3">
-        <drawtext name="title" x="0" y="0" font="{semibold}" width="{areawidth}" fontsize="10%" color="{clrWhite}" text="{title}" />
-		<drawtext name="shorttext" x="0" y="{height(title)}" font="{semibold}" width="{areawidth}" fontsize="8%" color="{clrWhite}" text="{shorttext}" />
+        <drawtext name="title" x="0" y="0" font="{semibold}" width="{areawidth}" fontsize="8%" color="{clrOwnBlueLight}" text="{title}" />
+		<drawtext name="shorttext" x="0" y="{height(title)}" font="{semibold}" width="{areawidth}" fontsize="6%" color="{clrWhite}" text="{shorttext}" />
 		
-        <drawtext condition="eq({showEpgProcessBar},0) ++ {running}" name="start" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="7%" color="{clrWhite}" text="{start}" />
-        <drawrectangle condition="eq({showEpgProcessBar},0) ++ {running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2" width="{areawidth}/2" height="1" color="{clrOwnBlue}" />
-        <drawrectangle condition="eq({showEpgProcessBar},0) ++ {running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2-2" width="{areawidth}/2 * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrOwnBlue}" />
-        <drawtext condition="eq({showEpgProcessBar},0) ++ {running}" name="stop" x="{width(sb2)}+{width(start)}+{width(start)}/4"  y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="7%" color="{clrWhite}" text="{stop}" />
-        <drawtext condition="not{running}" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="8%" color="{clrWhite}" text="{start} - {stop} ({duration} min)" />
+        <drawtext condition="eq({showEpgProcessBar},0) ++ {running}" name="start" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="5%" color="{clrWhite}" text="{start}" />
+        <drawrectangle condition="eq({showEpgProcessBar},0) ++ {running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2" width="{areawidth}/2" height="1" color="{clrOwnBlueLight}" />
+        <drawrectangle condition="eq({showEpgProcessBar},0) ++ {running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2-2" width="{areawidth}/2 * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrOwnBlueLight}" />
+        <drawtext condition="eq({showEpgProcessBar},0) ++ {running}" name="stop" x="{width(sb2)}+{width(start)}+{width(start)}/4"  y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="5%" color="{clrWhite}" text="{stop}" />
+        <drawtext condition="eq({showEpgProcessBar},1)++{running}" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="5%" color="{clrWhite}" text="{start} - {stop} ({duration} min)" />
+		<drawtext condition="not{running}" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="5%" color="{clrWhite}" text="{start} - {stop} ({duration} min)" />
 		
 	</area>
 
 
-	<areascroll condition="{hasposter}" mode="forthandback" orientation="vertical" delay="1000" scrollspeed="medium" x="37%" y="25%" width="61%" height="75%" layer="3">
-		<drawimage condition="{hasposter}" name="poster" imagetype="image" path="{posterpath}" align="right" y="0"  width="{areaheight} * 0.8  * {posterwidth} / {posterheight}" height="{areaheight} * 0.8"/>	
-		<drawtextbox x="0" y="0" width="95%" height="{areaheight} - {posy(poster)}" float="topright" floatwidth="{width(poster)}" floatheight="{height(poster)}+50"  font="{light}" fontsize="5%" color="{clrWhite}" text="{description}" />
-	</areascroll>
-	<areascroll condition="not{hasposter}" mode="forthandback" orientation="vertical" delay="1000" scrollspeed="medium" x="37%" y="25%" width="61%" height="75%" layer="3">
-		<drawtextbox x="0" y="0" width="95%" height="{areaheight} - {posy(poster)}" float="topleft"  font="{light}" fontsize="5%" color="{clrWhite}" text="{description}" />
-	</areascroll>			
+	<area condition="{hasposter}" x="37%" y="23%" width="61%" height="75%" layer="3">
+	<drawimage condition="{hasposter}" name="poster" imagetype="image" path="{posterpath}" align="right" y="0"  width="{areaheight} * 0.7  * {posterwidth} / {posterheight}" height="{areaheight} * 0.7"/>	
+
+		<drawtextbox name="description" x="0" y="0" width="95%" height="{areaheight} - {posy(poster)}" float="topright" floatwidth="{width(poster)}" floatheight="{height(poster)}+30"  font="{light}" fontsize="5%" color="{clrWhite}" text="{description}" />
+			</area>
+	
+	<area condition="not{hasposter}" x="37%" y="25%" width="61%" height="75%" layer="3">
+		<drawtextbox x="0" y="0" width="95%" height="{areaheight}" float="topleft"  font="{light}" fontsize="5%" color="{clrWhite}" text="{description}" />
+	</area>			
 		
 </currentelement>
 </menuitems>	
 
 <scrollbar>
-<area x="35%" y="10%" width="1%" height="82%" layer="5">		
+<area x="35%" y="10%" width="1%" height="84%" layer="5">		
 		<drawimage  name="scrollbar" imagetype="skinpart" path="scrollbar" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
 		<drawrectangle x="3" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}-6" height="{areaheight} * {height} / 1000" color="{clrOwnBlue}" />			
 </area>

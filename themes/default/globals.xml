@@ -23,10 +23,14 @@
         <color name="clrTransparent">00000000</color>
 		<color name="clrCyan">FF65c2e4</color>
 		
-		<color name="clrLightGray">FFcccece</color>
-		<color name="clrOwnCyan">FF65c2e4</color>
-		<color name="clrOwnBlue">FF0000FF</color>
+		<color name="clrLightGray">FFFF0000</color>
+		<color name="clrOwnCyan">FFFF0000</color>
+		
 		<color name="clrTransOwnBlue">640000ff</color>
+		
+		<color name="clrOwnGray">FF707070</color>
+		<color name="clrOwnBlue">FF0000FF</color>
+		<color name="clrOwnBlueLight">FF007FE2</color>
     </colors>
     <!--
     these variables can be used everywhere in the templates
@@ -46,7 +50,7 @@
 		<var type="int" name="showTimers">1</var>
 		
 		<!-- shows the ProcessBar in EPG-Listelement instead of subtitle -->
-		<var type="int" name="showEpgProcessBar">0</var>
+		<var type="int" name="showEpgProcessBar">1</var>
 		
 		<!-- possible values: 
 		1 = epg 
@@ -56,7 +60,10 @@
 		
 		 <var type="int" name="fadeTime">0</var>
 		 <var type="int" name="delayTime">0</var>
+		 <var type="int" name="mainMenuItems">10</var>
+		 <var type="int" name="epgMenuItems">10</var>
 		
+		<var type="int" name="useSmallMenu">1</var>
 		
     </variables>
     <!--

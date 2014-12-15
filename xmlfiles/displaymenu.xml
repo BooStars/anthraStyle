@@ -16,7 +16,7 @@
 <background>
 
 <area x="0%" y="0%" width="100%" height="10%" layer="2">
-	<drawimage condition="not{current}" name="header" imagetype="skinpart" path="header" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+	<drawimage name="header" imagetype="skinpart" path="header" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
 </area>
 
 <area x="0" y="0" width="36%" height="100%" layer="1">
@@ -36,10 +36,13 @@
 
 
 <datetime>
-	<area x="75%" y="1%" width="25%" height="8%" layer="2">
-		<drawtext name="dayname" x="0" y="0" font="{light}" fontsize="55%" color="{clrWhite}" text="{dayname}" />
-		<drawtext x="0" y="{height(dayname)}" font="{light}" fontsize="55%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
-		<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+	<area x="77%" y="1%" width="14%" height="8%" layer="2">
+		<drawtext name="dayname" x="0" align="center" valign="top" font="{light}" fontsize="55%" color="{clrWhite}" text="{dayname}" />
+		<drawtext name="date" x="0" align="center" valign="bottom" font="{light}" fontsize="55%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+	</area>
+	
+	<area x="91%" y="1%" width="8%" height="8%" layer="2">
+		<drawtext name="time" x="0" align="center" valign="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{time}" />	
     </area>
 </datetime>
 
@@ -61,7 +64,7 @@
 </message>
 
 <colorbuttons>
-	<area x="0%" y="92%" width="25%" height="8%" layer="2">
+	<area x="0%" y="94%" width="25%" height="6%" layer="2">
 		<drawimage name="menuitem" imagetype="skinpart" path="menuitem" x="0" valign="bottom" width="100%" height="100%"/>
 		
 		<drawrectangle condition="{yellow1}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrYellow}" />
@@ -71,53 +74,53 @@
 		
 		</area>
 
-	<area x="1%" y="93%" width="23%" height="6%" layer="2">
-		<drawtext condition="{yellow1}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red1}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue1}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green1}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{green}" />
+	<area x="1%" y="94%" width="23%" height="6%" layer="2">
+		<drawtext condition="{yellow1}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red1}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue1}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green1}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{green}" />
 		</area>
 	
-	<area x="25%" y="92%" width="25%" height="8%" layer="2">
+	<area x="25%" y="94%" width="25%" height="6%" layer="2">
 		<drawimage name="menuitem" imagetype="skinpart" path="menuitem" x="0" valign="bottom" width="100%" height="100%"/>
 		<drawrectangle condition="{yellow2}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrYellow}" />
 		<drawrectangle condition="{red2}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrRed}" />
 		<drawrectangle condition="{green2}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrGreen}" />
 		<drawrectangle condition="{blue2}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrOwnBlue}" />
 	</area>
-	<area x="26%" y="93%" width="23%" height="6%" layer="2">
-		<drawtext condition="{yellow2}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red2}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue2}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green2}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{green}" />
+	<area x="26%" y="94%" width="23%" height="6%" layer="2">
+		<drawtext condition="{yellow2}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red2}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue2}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green2}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{green}" />
 	</area>
 
-	<area x="50%" y="92%" width="25%" height="8%" layer="2">
+	<area x="50%" y="94%" width="25%" height="6%" layer="2">
 		<drawimage name="menuitem" imagetype="skinpart" path="menuitem" x="0" valign="bottom" width="100%" height="100%"/>
 		<drawrectangle condition="{yellow3}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrYellow}" />
 		<drawrectangle condition="{red3}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrRed}" />
 		<drawrectangle condition="{green3}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrGreen}" />
 		<drawrectangle condition="{blue3}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrOwnBlue}" />
 	</area>
-	<area x="51%" y="93%" width="23%" height="6%" layer="2">
-		<drawtext condition="{yellow3}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red3}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue3}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green3}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{green}" />
+	<area x="51%" y="94%" width="23%" height="6%" layer="2">
+		<drawtext condition="{yellow3}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red3}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue3}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green3}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{green}" />
 	</area>
 	
-	<area x="75%" y="92%" width="25%" height="8%" layer="2">
+	<area x="75%" y="94%" width="25%" height="6%" layer="2">
 		<drawimage name="menuitem" imagetype="skinpart" path="menuitem" x="0" valign="bottom" width="100%" height="100%"/>
 		<drawrectangle condition="{yellow4}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrYellow}" />
 		<drawrectangle condition="{red4}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrRed}" />
 		<drawrectangle condition="{green4}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrGreen}" />
 		<drawrectangle condition="{blue4}" x="{areaheight}/16" y="{areaheight}/6" width="{areawidth}-{areaheight}/8" height="{areaheight}/8" color="{clrOwnBlue}" />
 	</area>
-	<area x="76%" y="93%" width="23%" height="6%" layer="2">
-		<drawtext condition="{yellow4}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red4}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue4}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green4}" valign="bottom" align="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{green}" />
+	<area x="76%" y="94%" width="23%" height="6%" layer="2">
+		<drawtext condition="{yellow4}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red4}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue4}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green4}" valign="bottom" align="center" font="{light}" fontsize="70%" color="{clrWhite}" text="{green}" />
 	</area>
 </colorbuttons>
     &displaymenudefault;

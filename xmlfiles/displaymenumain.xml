@@ -22,11 +22,11 @@
 <timers>
 
 </timers>
+<!-- <menuitems x="0" y="10%" orientation="vertical" width="100%" height="60%" numlistelements="8">  -->
 
-<menuitems x="0" y="10%" orientation="vertical" width="100%" height="83%" numlistelements="10">
-
+<menuitems x="0" y="10%" orientation="vertical" width="100%" height="83%" numlistelements="{mainMenuItems}">
 <listelement >
-<!--active item -->
+<!--active item <menuitems x="0" y="10%" orientation="vertical" width="100%" height="83%" numlistelements="10">-->
 	<area x="0" width="35%" layer="2">
 		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
 	</area>
